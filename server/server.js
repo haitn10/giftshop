@@ -1,17 +1,18 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
 
 const bodyParser = require("body-parser");
 
 const router = require("./routes");
-const { sequelize } = require("./models");
 
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
